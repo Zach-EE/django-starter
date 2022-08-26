@@ -2,13 +2,13 @@ version: '3.9'
 
 services:
   backend:
-    image: prj/backend:latest
-    build: 
-      context: ./backend
-      dockerfile: ../backend.Dockerfile
-    command: python /code/backend/manage.py runserver 0.0.0.0:8000
+    image: backend:latest
+    build: ./backend
+      # context: backend
+      # dockerfile: ../backend.Dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code
+      - ./backend:/app/backend
     ports:
       - 8000:8000
     depends_on:
